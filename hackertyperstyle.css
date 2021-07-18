@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+/*font-family: 'DotGothic16', sans-serif;*/
+
+
+body {
+	background-color: black;
+	font-family: 'DotGothic16', sans-serif;
+	-ms-overflow-style: none;
+	-ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;
+}
+::-webkit-scrollbar { 
+	display: none;
+}
+#code {
+	width: 60vw;
+	height: 100%;
+	color: #40FF00;
+	font-size: 1.2rem;
+	word-break:break-all;
+}
+
+#alert {
+	width: 15vw;
+	background-color: black;
+	color: #58D3F7;
+	display: none;
+	border: 1px solid #58D3F7;
+	text-align: center;
+	position: fixed;
+	text-align: center;
+	position: fixed;
+  	bottom: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+}
+
+#alert2 {
+	width: 15vw;
+	background-color: black;
+	color: #FE2E2E;
+	display: none;
+	border: 1px solid #FE2E2E;
+	text-align: center;
+	position: fixed;
+	text-align: center;
+	position: fixed;
+  	bottom: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+}
+
+.green {
+	background-color: #40FF00;
+	font-size: 20px;
+	line-height: 1.8em;
+	color: #FFF;
+	text-align: center;
+	border-radius: 15px;
+	display: inline-block;
+	width: 1.2vw;
+	height: 80%;
+	position: absolute;
+	bottom: 0;
+	
+}
+
+#world {
+	text-align: center;
+	height: 20vh;
+	position: fixed;
+	top : 50vh;
+	width: 15vw;
+	right: 0;
+	
+}
+#g1 {
+	animation: span1 2s infinite;
+}
+#g2 {
+	animation: span2 1.4s infinite;
+}
+#g3 {
+	animation: span3 2.5s infinite;
+}
+#g4 {
+	animation: span4 1.7s infinite;
+}
+#g5 {
+	animation: span5 2s infinite;
+}
+#g6 {
+	animation: span6 1.8s infinite;
+}
+#g7 {
+	animation: span7 2.7s infinite;
+}
+#g8 {
+	animation: span8 2s infinite;
+}
+#graph {
+	position: fixed;
+	height: 40vh;
+	top: 5vh;
+	right: 15vw;
+}
+#cus {
+	position: fixed;
+	height: 10vh;
+	bottom: 10vh;
+	right: 0;
+	color: white;
+	
+}
+#per {
+	right: 25vw;
+	position: fixed;
+	color: white;
+}
+
+@keyframes span1 {
+	0%{height: 40%}
+	25%{height: 70%}
+	50%{height: 60%}
+	75%{height: 20%}
+	100%{height: 40%}
+}
+@keyframes span2 {
+	0%{height: 70%}
+	25%{height: 60%}
+	50%{height: 20%}
+	75%{height: 40%}
+	100%{height: 70%}
+}
+@keyframes span3 {
+	0%{height: 60%}
+	25%{height: 20%}
+	50%{height: 40%}
+	75%{height: 70%}
+	100%{height: 60%}
+}
+@keyframes span4 {
+	0%{height: 20%}
+	25%{height: 40%}
+	50%{height: 70%}
+	75%{height: 60%}
+	100%{height: 20%}
+}
+@keyframes span5 {
+	0%{height: 10%}
+	25%{height: 45%}
+	50%{height: 80%}
+	75%{height: 50%}
+	100%{height: 30%}
+}
+@keyframes span6 {
+	0%{height: 90%}
+	25%{height: 75%}
+	50%{height: 50%}
+	75%{height: 40%}
+	100%{height: 80%}
+}
+@keyframes span7 {
+	0%{height: 30%}
+	25%{height: 60%}
+	50%{height: 90%}
+	75%{height: 40%}
+	100%{height: 10%}
+}
+@keyframes span8 {
+	0%{height: 50%}
+	25%{height: 40%}
+	50%{height: 30%}
+	75%{height: 80%}
+	100%{height: 60%}
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Keyboard Warrior</title>
+    <link rel="shortcut icon" type="image/x-icon" href="bone.png">
+    <meta property="og:title" content="Keyboard Warrior" />
+	<meta property="og:description" content="Type like a developer on this site!" />
+	<meta property="og:image" content="hacking-how-pressable-handles-it.jpg" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="mainstyle.css">
+    <link rel="stylesheet" href="animate.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+    <script src="mainsystem.js"></script>
+    <!--<link rel="stylesheet" href="style.css">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script>
+		/*모바일 체크(삭제하지 맙시다)*/
+		function isMobile() {
+			return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+		}
+		if (isMobile()){
+			alert('모바일에서는 사용이 불가능합니다.');
+		}
+		
+		window.addEventListener("keydown", (e) => {
+			var keycode = event.keyCode; 
+			if ( keycode == 116 || keycode == 123) { 
+				event.returnValue = false;
+			}
+			else if ( keycode == 13) { 
+				document.getElementById("alert3").style.display = "none";
+				document.getElementById("alert4").style.display = "block";
+			}
+		});
+		
+		    </script>
+</head>
+
+<!--본문 시작-->
+<body onload="start();">
+    <div id="jb-header"><p>KeyboardWarrior@linux-desktop: ~</p></div>
+    <div id="jb-content" class=content>
+        <div id="textoutput"></div>
+        <div id="textinput"></div>
+    </div>
+
+    
+</body>
+</html>

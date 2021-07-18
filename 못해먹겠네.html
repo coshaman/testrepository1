@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Hacking Simulator</title>
+    <link rel="shortcut icon" type="image/x-icon" href="bone.png">
+    <meta property="og:title" content="Hacker Typer" />
+	<meta property="og:description" content="Type like a hacker on this site!" />
+	<meta property="og:image" content="hacking-how-pressable-handles-it.jpg" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="animate.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+    <!--<link rel="stylesheet" href="style.css">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/wow.min.js"></script>
+    <script src="https://kit.fontawesome.com/4bea434f10.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://wowjs.uk/css/libs/animate.css">
+    <script src="https://wowjs.uk/dist/wow.min.js"></script>    
+    <script>
+        new WOW().init();
+    </script>
+    <style type="text/css">
+    </style>
+    <style>
+	header {
+	     z-index: 500;
+	      position: fixed;
+	      top: 0;
+	      left: 0;
+	      right: 0;
+	      font-size: 16px;
+	      height: 50px;
+	      padding: 1rem;
+	      color: white;
+	      background: black;
+	      display: flex;
+	      align-items: center;
+	      letter-spacing: 5px;
+	      opacity: 0.8;
+	}
+	.active {
+    		background-color: #4CAF50;
+	}
+	.circle {
+            margin: 25px 10px;
+            width: 200px;
+            color: #fff;
+            font-size: 32px;
+            line-height: 200px;
+            text-align: center;
+            height: 200px;
+            border-radius: 100px;
+        }
+
+        .bg-green {
+            background: #5bd5a0;
+        }
+
+        .bg-yellow {
+            background: #ffcc35;
+        }
+    </style>
+    <script>
+		
+		function isMobile() {
+			return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+		}
+		if (isMobile()){
+			alert('모바일에서는 사용이 불가능합니다.');
+		}
+		
+		window.addEventListener("keydown", (e) => {
+			var keycode = event.keyCode; 
+			if ( keycode == 116 || keycode == 123) { 
+				event.returnValue = false;
+			}
+			else if ( keycode == 13) { 
+				document.getElementById("alert3").style.display = "none";
+				document.getElementById("alert4").style.display = "block";
+			}
+		});
+		
+		    </script>
+</head>
+<body>
+    <div id="jb-container">
+      <div id="jb-header" style="color: #40ff00;">
+        <h1>Hacking Simulator</h1>
+      </div>
+      <div id="jb-sidebar-left">
+        <h2>Sidebar</h2>
+        <ul>
+          <li><a id='side1' target="_blank" href="hackertyper.html" style="text-decoration: none; color: #40ff00;">Hacker Typer</a></li>
+          <li><a id='side2' target="_blank" href="prompt.html" style="text-decoration: none; color: #40ff00;">Ghost Writer</a></li>
+          <li><a id='side3' target="_blank" href="matrix.html" style="text-decoration: none; color: #40ff00;">Matrix Monitor</a></li>
+        </ul>
+      </div>
+      <div id="jb-content">
+        <h2>Alert</h2>
+        <p id="alert3" style="display: block;">이 프로젝트는 해커 타이퍼의 확장판 프로젝트로서 메인 화면, 고스트 라이터, 매트릭스 모니터, 해커 타이퍼 총 4개의 프로젝트로 구성되었습니다. 개발 중 타 개발자 분들의 코드 및 api를 참고했습니다. 이 글은 엔터키를 누르면 사라집니다. 마음에 드는 화면을 띄우고 재미있게 해킹하는 느낌을 즐겨보세요!</p>
+        <p id="alert4" style="display: none; font-size: 5rem; color: #40ff00;">Hacking Complete</p>
+      </div>
+      <div id="jb-sidebar-right">
+        <h2>Closed circuit monitoring</h2>
+        <video autoplay loop muted>
+			<source src="Hallway.mp4" type="video/mp4">
+			<strong>Change browser to use all functions</strong>
+		</video>
+		<video autoplay loop muted>
+			<source src="Building.mp4" type="video/mp4">
+			<strong>Change browser to use all functions</strong>
+		</video>
+      </div>
+      <div id="jb-footer">
+        <p>© Copyright 집돌이 페렐만 2021.</p>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+    	function rand(min, max) {
+		    return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+		function getRandomLetter() {
+		 var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+		 return alphabet[rand(0,alphabet.length - 1)]
+		}
+		function getRandomWord(word) {
+		  var text = word.innerHTML
+		  
+		  var finalWord = ''
+		  for(var i=0;i<text.length;i++) {
+		    finalWord += text[i] == ' ' ? ' ' : getRandomLetter()
+		  }
+		 
+		  return finalWord
+		}
+
+		var word = document.querySelector('h1');
+		var interv = 'undefined';
+		var canChange = false;
+		var globalCount = 0;
+		var count = 0;
+		var INITIAL_WORD = word.innerHTML;
+		var isGoing = false;
+
+		function init() {
+		 if(isGoing) return;
+		 
+		 isGoing = true
+		 var randomWord = getRandomWord(word)
+		 word.innerHTML = randomWord
+
+		 interv = setInterval(function() {
+		  var finalWord = ''
+		  for(var x=0;x<INITIAL_WORD.length;x++) {
+		   if(x <= count && canChange) {
+		    finalWord += INITIAL_WORD[x]
+		   } else {
+		    finalWord += getRandomLetter()
+		   }
+		  }
+		  word.innerHTML = finalWord
+		  if(canChange) {
+		    count++
+		  }
+		  if(globalCount >= 20) {
+		   canChange = true
+		  }
+		  if(count>=INITIAL_WORD.length) {
+		   clearInterval(interv)
+		   count = 0
+		   canChange = false
+		   globalCount = 0
+		   isGoing = false
+		  }
+		  globalCount++
+		 },50)
+		 
+		}
+
+
+
+		word.addEventListener('mouseenter', init)</script>
+</body>
+</html>

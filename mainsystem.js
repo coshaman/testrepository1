@@ -48,13 +48,14 @@ function changeme(){
         alert("Please input only in English");
         document.getElementById("inputplace").value = "";
     }*/
-    if(document.getElementById("finaltest").innerHTML.length < 120){
+    if(document.getElementById("finaltest").innerHTML.length < 95){
         if(event.keyCode != 32){
             document.getElementById("finaltest").innerHTML += String.fromCharCode(event.keyCode);
             
         }
         document.getElementById("inputplace").value = "";
     }
+    document.getElementById("jb-content").scrollLeft += 1000000;
     
     
 }
@@ -74,4 +75,5 @@ function changeme2(){
         document.getElementById("inputplace").value = "";
     }
     document.getElementById("inputplace").value = "";
+    document.getElementById("jb-content").scrollLeft += 10000;
 }

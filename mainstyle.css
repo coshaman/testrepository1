@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
 /*font-family: 'DotGothic16', sans-serif;*/
-
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+/*font-family: 'Source Code Pro', monospace;*/
 
 body {
 	background-color: black;
 	background-image: url(wallpaper.png);
 	background-size: cover;
-	font-family: 'DotGothic16', sans-serif;
+	font-family: 'Source Code Pro', monospace;
 	-ms-overflow-style: none;
 	-ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;
 }
@@ -113,6 +114,7 @@ body {
 	padding-left: 3vw;
 	font-size: 2.5vh;
 	border-radius: 8px 8px 0px 0px;
+	margin-top: 3vh;
 }
 
 #textoutput {
@@ -120,16 +122,86 @@ body {
 	height: auto;
 	color : white;
 	line-height: 0em;
-	font-size: 1rem;
-	font-family: 'DotGothic16', sans-serif;
+	font-size: 1.5em;
+	font-family: 'Source Code Pro', monospace;
 }
 
 #textinput {
 	width: 88vw;
 	min-height: 5vh;
 	color : white;
-	font-size: 1rem;
-	font-family: 'DotGothic16', sans-serif;
+	font-size: 1.5em;
+	font-family: 'Source Code Pro', monospace;
+	line-height: 3em;
+	display:flex;
+    flex-direction:row;
 }
-
-
+#testfor{
+	width: 88vw;
+	min-height: 5vh;
+	color : white;
+	font-size: 1.5em;
+	font-family: 'Source Code Pro', monospace;
+	line-height: 3em;
+	display:flex;
+    flex-direction:row;	
+}
+#inputplace{
+	font-family: 'Source Code Pro', monospace;
+	z-index: 1;
+	color:rgba(255, 255, 255, 0);
+	background-color: rgba( 255, 255, 255, 0 );;
+	border-style:hidden;
+	border:none;
+	border-right:0px; 
+	border-top:0px; 
+	border-left:0px; 
+	border-bottom:0px;
+	flex: 1;
+	font-size: 1.5rem;
+	height: 100%;
+	margin-top: 1.5rem;
+	color: transparent;
+  	text-shadow: 0 0 0;
+	&:focus {
+		outline: none;
+	}
+	
+}
+#finaltest{
+	font-family: 'Source Code Pro', monospace;
+	z-index: 1;
+	color:white;
+	background-color: rgba( 255, 255, 255, 0 );;
+	border-style:hidden;
+	border:none;
+	border-right:0px; 
+	border-top:0px; 
+	border-left:0px; 
+	border-bottom:0px;
+	width: auto;
+	font-size: 1.5rem;
+	height: 100%;
+	border-right: solid 8px white;
+	margin-top: 1.5rem;
+	line-height: 100%;
+	color: transparent;
+	animation: cureffect 1s steps(1) infinite;
+  	text-shadow: 0 0 0 white;
+	&:focus {
+		outline: none;
+	}
+}
+#inputplace:focus{
+	border:none;
+	border-right:0px; 
+	border-top:0px; 
+	border-left:0px; 
+	border-bottom:0px;
+	outline: none;
+}
+@keyframes cureffect{ 
+	0%{border-right: 10px solid white} 
+	50%{border-right: 10px solid #340f26} 
+	100%{border-right: 10px solid white} 
+  }

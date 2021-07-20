@@ -156,6 +156,10 @@ body {
 	border-right:0px; 
 	border-top:0px; 
 	border-left:0px; 
+	-webkit-ime-mode:disabled;
+	-moz-ime-mode:disabled;
+	-ms-ime-mode:disabled;
+	ime-mode:disabled;
 	border-bottom:0px;
 	flex: 1;
 	font-size: 1.5rem;

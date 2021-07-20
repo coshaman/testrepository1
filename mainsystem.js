@@ -28,8 +28,34 @@ readTextFile("test.txt");*/
 
 
 function changeme(){
-    document.getElementById("finaltest").innerHTML += document.getElementById("inputplace").value;
-    document.getElementById("inputplace").value = "";
+    
+    /*if(event.keyCode == 8){
+        if(document.getElementById("finaltest").innerHTML.slice(-6) == "&nbsp;"){
+            document.getElementById("finaltest").innerHTML = document.getElementById("finaltest").innerHTML.slice(0, -6);
+        }
+        else{
+            document.getElementById("finaltest").innerHTML = document.getElementById("finaltest").innerHTML.slice(0, -1);
+        }
+        
+    }
+    else if(event.keyCode == 32){
+        document.getElementById("finaltest").innerHTML += "&nbsp;";
+        document.getElementById("inputplace").value = "";
+    }
+    else{
+    const testing = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+    if(testing.test(document.getElementById("inputplace").value)){
+        alert("Please input only in English");
+        document.getElementById("inputplace").value = "";
+    }*/
+    if(event.keyCode != 32){
+        document.getElementById("finaltest").innerHTML += String.fromCharCode(event.keyCode);
+        document.getElementById("inputplace").value = "";
+    }   
+    
+}
+
+function changeme2(){
     if(event.keyCode == 8){
         if(document.getElementById("finaltest").innerHTML.slice(-6) == "&nbsp;"){
             document.getElementById("finaltest").innerHTML = document.getElementById("finaltest").innerHTML.slice(0, -6);
@@ -39,12 +65,9 @@ function changeme(){
         }
         
     }
-    if(event.keyCode == 32){
-        document.getElementById("finaltest").innerHTML = document.getElementById("finaltest").innerHTML.slice(0, -1)
+    else if(event.keyCode == 32){
         document.getElementById("finaltest").innerHTML += "&nbsp;";
         document.getElementById("inputplace").value = "";
     }
-    document.getElementById("finaltest").innerHTML += document.getElementById("inputplace").value;
     document.getElementById("inputplace").value = "";
-
 }

@@ -145,6 +145,7 @@ body {
 	line-height: 3em;
 	display:flex;
     flex-direction:row;	
+	white-space:nowrap;
 }
 #inputplace{
 	font-family: 'Source Code Pro', monospace;
@@ -185,7 +186,7 @@ body {
 	border-bottom:0px;
 	width: auto;
 	font-size: 1.5rem;
-	height: 100%;
+	max-height: 1.5rem;
 	border-right: solid 8px white;
 	margin-top: 1.5rem;
 	line-height: 100%;

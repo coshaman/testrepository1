@@ -48,10 +48,14 @@ function changeme(){
         alert("Please input only in English");
         document.getElementById("inputplace").value = "";
     }*/
-    if(event.keyCode != 32){
-        document.getElementById("finaltest").innerHTML += String.fromCharCode(event.keyCode);
+    if(document.getElementById("finaltest").innerHTML.length < 120){
+        if(event.keyCode != 32){
+            document.getElementById("finaltest").innerHTML += String.fromCharCode(event.keyCode);
+            
+        }
         document.getElementById("inputplace").value = "";
-    }   
+    }
+    
     
 }
 

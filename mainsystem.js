@@ -78,7 +78,6 @@ function changeme2(){
         
         if(command == "help"){
             let content = readTextFile("help.txt");
-            content.replaceAll("\n", "<br/>");
             document.getElementById("textoutput").innerHTML += content;
         }
 

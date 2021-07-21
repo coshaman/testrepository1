@@ -12,6 +12,7 @@ function readTextFile(file)
             if(rawFile.status === 200 || rawFile.status == 0)
             {
                 var allText = rawFile.responseText;
+                return allText;
             }
         }
     }
@@ -78,7 +79,7 @@ function changeme2(){
         
         if(command == "help"){
             let content = readTextFile("help.txt");
-            document.getElementById("textoutput").innerHTML += content;
+            document.getElementById("textoutput").innerHTML += "<pre>" + content + "</pre>";
         }
 
     }

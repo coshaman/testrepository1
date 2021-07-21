@@ -87,6 +87,10 @@ body {
 	
 }*/
 /*화면 레이아웃*/
+
+p{
+	margin: 0px 0px 0px 0px;
+}
 #jb-content {
 	width: 90vw;
 	height: 85vh;
@@ -121,51 +125,47 @@ body {
 	width: 88vw;
 	height: auto;
 	color : white;
-	line-height: 0em;
+	line-height: 100%;
 	font-size: 1.5em;
 	font-family: 'Source Code Pro', monospace;
+	display: block;
+	padding: 0%;
 }
 
 #textinput {
 	width: 88vw;
-	min-height: 5vh;
-	color : white;
+	color : rgba(255, 255, 255, 0);
 	font-size: 1.5em;
 	font-family: 'Source Code Pro', monospace;
-	line-height: 3em;
 	display:flex;
     flex-direction:row;
+	padding: 0%;
 }
 #testfor{
 	width: 88vw;
-	min-height: 5vh;
 	color : white;
 	font-size: 1.5em;
 	font-family: 'Source Code Pro', monospace;
-	line-height: 3em;
-	display:flex;
     flex-direction:row;	
 	white-space:nowrap;
+	display: block;
+	padding: 0%;
 }
 #inputplace{
 	font-family: 'Source Code Pro', monospace;
 	z-index: 1;
+	line-height: 0%;
+	padding: 0%;
 	color:rgba(255, 255, 255, 0);
 	background-color: rgba( 255, 255, 255, 0 );;
 	border-style:hidden;
 	border:none;
 	border-right:0px; 
 	border-top:0px; 
-	border-left:0px; 
-	-webkit-ime-mode:disabled;
-	-moz-ime-mode:disabled;
-	-ms-ime-mode:disabled;
-	ime-mode:disabled;
+	border-left:0px;
 	border-bottom:0px;
-	flex: 1;
 	font-size: 1.5rem;
-	height: 100%;
-	margin-top: 1.5rem;
+	width: 100%;
 	color: transparent;
   	text-shadow: 0 0 0;
 	&:focus {
@@ -175,21 +175,18 @@ body {
 }
 #finaltest{
 	font-family: 'Source Code Pro', monospace;
-	z-index: 1;
 	color:white;
-	background-color: rgba( 255, 255, 255, 0 );;
+	background-color: rgba( 255, 255, 255, 0 );
 	border-style:hidden;
 	border:none;
 	border-right:0px; 
 	border-top:0px; 
+	padding: 0%;
 	border-left:0px; 
 	border-bottom:0px;
 	width: auto;
 	font-size: 1.5rem;
-	max-height: 1.5rem;
 	border-right: solid 8px white;
-	margin-top: 1.5rem;
-	line-height: 100%;
 	color: transparent;
 	animation: cureffect 1s steps(1) infinite;
   	text-shadow: 0 0 0 white;
@@ -210,3 +207,5 @@ body {
 	50%{border-right: 10px solid #340f26} 
 	100%{border-right: 10px solid white} 
   }
+
+.no-drag {-ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;}

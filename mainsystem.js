@@ -1,11 +1,7 @@
-function start(){
-    document.getElementById("textoutput").innerHTML="<p style='line-height: 100%;'>Welcome to the game!</p>";
-    document.getElementById("textoutput").innerHTML +="Please type any command and type 'help' for help​";
-    
-}
 
 
-/*function readTextFile(file)
+
+function readTextFile(file)
 {
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, false);
@@ -16,14 +12,13 @@ function start(){
             if(rawFile.status === 200 || rawFile.status == 0)
             {
                 var allText = rawFile.responseText;
-                alert(allText);
             }
         }
     }
     rawFile.send(null);
 }
 
-readTextFile("test.txt");*/
+
 
 
 
@@ -49,13 +44,14 @@ function changeme(){
         document.getElementById("inputplace").value = "";
     }*/
     if(document.getElementById("finaltest").innerHTML.length < 95){
-        if(event.keyCode != 32){
+        if(event.keyCode != 32 && event.keyCode != 13){
             document.getElementById("finaltest").innerHTML += String.fromCharCode(event.keyCode);
             
         }
         document.getElementById("inputplace").value = "";
     }
     document.getElementById("jb-content").scrollLeft += 1000000;
+    document.getElementById("inputplace").value = "";
     
     
 }
@@ -74,6 +70,23 @@ function changeme2(){
         document.getElementById("finaltest").innerHTML += "&nbsp;";
         document.getElementById("inputplace").value = "";
     }
+    else if(event.keyCode == 13){
+        document.getElementById("textoutput").innerHTML += "<p>root@game-pc:~$&nbsp;" + document.getElementById("finaltest").innerHTML + "</p>";
+        let command = document.getElementById("finaltest").innerHTML;
+        document.getElementById("finaltest").innerHTML = "";
+        document.getElementById("inputplace").value = "";
+        
+        if(command == "help"){
+            let content = readTextFile("help.txt");
+            content.replaceAll("\n", "<br/>");
+            document.getElementById("textoutput").innerHTML += content;
+        }
+
+    }
     document.getElementById("inputplace").value = "";
     document.getElementById("jb-content").scrollLeft += 10000;
+}
+
+function byebye(){
+    document.getElementById("inputplace").value = "";
 }

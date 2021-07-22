@@ -1,7 +1,12 @@
+const commandlist = {}
+commandlist['help'] = `Register -id -pw -email : register this game
+Save -filename : save the game
+Rank -show : show my rank
+Rank -upload : upload my score data
+Login -id -pw : login to this game`;
 
 
-
-function readTextFile(file)
+/*function readTextFile(file)
 {
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, false);
@@ -18,8 +23,24 @@ function readTextFile(file)
     }
     rawFile.send(null);
 }
+function test(event) {
+    event.preventDefault(); //submit 할때 새로고침 되는것을 방지
+    let fileObject = document.getElementById("input_file");
+    let fileName = fileObject.files[0];
 
+    let fr = new FileReader();
+    fr.readAsText(fileName, "utf-8");
 
+    fr.onload = () => {
+        parseText(fr.result);
+    }
+}
+
+function parseText(text) {
+    console.log(text);
+    document.getElementById("textoutput").innerHTML += "<pre>" + text + "</pre>";
+}
+*/
 
 
 
@@ -57,6 +78,10 @@ function changeme(){
     
 }
 
+function commandoutput(command) {
+    let text = commandlist[command];
+    document.getElementById("textoutput").innerHTML += "<pre><p style='color : white;line-height: 100%;font-size: 1.5em;font-family: 'Source Code Pro', monospace;'><pre>" + text + "</p></pre>";
+}
 function changeme2(){
     if(event.keyCode == 8){
         if(document.getElementById("finaltest").innerHTML.slice(-6) == "&nbsp;"){
@@ -77,11 +102,11 @@ function changeme2(){
         document.getElementById("finaltest").innerHTML = "";
         document.getElementById("inputplace").value = "";
         
-        if(command == "help"){
-            let content = readTextFile("help.txt");
-            document.getElementById("textoutput").innerHTML += "<pre>" + content + "</pre>";
+        if(command in commandlist){
+            commandoutput(command);
+            
         }
-
+        document.getElementById("jb-content").scrollTop += 10000;
     }
     document.getElementById("inputplace").value = "";
     document.getElementById("jb-content").scrollLeft += 10000;

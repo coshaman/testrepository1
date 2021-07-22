@@ -132,7 +132,14 @@ p{
 	padding: 0%;
 	
 }
-
+pre {
+	color : white;
+	height: auto;
+	overflow: visible;
+	font-size: 1em;
+	font-family: 'Source Code Pro', monospace;
+	margin: 0px;
+}
 #textinput {
 	width: 88vw;
 	color : rgba(255, 255, 255, 0);

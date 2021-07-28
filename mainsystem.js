@@ -1,70 +1,21 @@
 const commandlist = {}
-commandlist['help'] = `Register -id -pw -email : register this game
+commandlist['help'] = `
+Register -id -pw -email : register this game
 Save -filename : save the game
 Rank -show : show my rank
 Rank -upload : upload my score data
 Login -id -pw : login to this game`;
-
-
-/*function readTextFile(file)
-{
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                var allText = rawFile.responseText;
-                return allText;
-            }
-        }
-    }
-    rawFile.send(null);
-}
-function test(event) {
-    event.preventDefault(); //submit 할때 새로고침 되는것을 방지
-    let fileObject = document.getElementById("input_file");
-    let fileName = fileObject.files[0];
-
-    let fr = new FileReader();
-    fr.readAsText(fileName, "utf-8");
-
-    fr.onload = () => {
-        parseText(fr.result);
-    }
-}
-
-function parseText(text) {
-    console.log(text);
-    document.getElementById("textoutput").innerHTML += "<pre>" + text + "</pre>";
-}
-*/
+commandlist['start'] = `
+`
+commandlist['test1'] = `#include <stdio.h>
+int main(void) {
+    printf("Hello, World!");
+    return 0;
+}`
 
 
 
 function changeme(){
-    
-    /*if(event.keyCode == 8){
-        if(document.getElementById("finaltest").innerHTML.slice(-6) == "&nbsp;"){
-            document.getElementById("finaltest").innerHTML = document.getElementById("finaltest").innerHTML.slice(0, -6);
-        }
-        else{
-            document.getElementById("finaltest").innerHTML = document.getElementById("finaltest").innerHTML.slice(0, -1);
-        }
-        
-    }
-    else if(event.keyCode == 32){
-        document.getElementById("finaltest").innerHTML += "&nbsp;";
-        document.getElementById("inputplace").value = "";
-    }
-    else{
-    const testing = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
-    if(testing.test(document.getElementById("inputplace").value)){
-        alert("Please input only in English");
-        document.getElementById("inputplace").value = "";
-    }*/
     if(document.getElementById("finaltest").innerHTML.length < 95){
         if(event.keyCode != 32 && event.keyCode != 13){
             document.getElementById("finaltest").innerHTML += String.fromCharCode(event.keyCode);
@@ -77,10 +28,48 @@ function changeme(){
     
     
 }
-
+let step = 0;
+let gamestarted = false;
+let nStart;
+let nEnd;
+let gamestep = 0;
+let gametext;
+let point = 0;
 function commandoutput(command) {
-    let text = commandlist[command];
-    document.getElementById("textoutput").innerHTML += "<pre><p style='color : white;line-height: 100%;font-size: 1.5em;font-family: 'Source Code Pro', monospace;'><pre>" + text + "</p></pre>";
+    if(command == "help"){
+        let text = commandlist[command];
+        let count = 0;
+        let prepos = 0;
+        let pos = text.indexOf("\n");
+        while (pos !== -1) {
+            count++;
+            document.getElementById("textoutput").innerHTML += "&nbsp;" + text.slice(prepos, pos) + "<br>";
+            prepos = pos;
+            pos = text.indexOf("\n", pos + 1);
+
+        }
+    }
+    else if(command == "start") {
+        nStart = new Date().getTime();
+        //타자게임
+        let textl = commandlist["test1"];
+        gametext = textl.split("\n");
+        step = gametext.length;
+        gamestarted = true;
+        for(gamestep = 0;gamestep < step;gamestep++){
+            gametext[gamestep] = gametext[gamestep].replace(/ /gi,"&nbsp;");
+            gametext[gamestep] = gametext[gamestep].replace(/</gi,"&lt;");
+            gametext[gamestep] = gametext[gamestep].replace(/>/gi,"&gt;");
+        }
+        gamestep = 0;
+        
+        document.getElementById("textoutput").innerHTML += "<p>&nbsp;화면에 보이는 문장을 입력 후 엔터를 누르세요.</p>"
+        document.getElementById("textoutput").innerHTML += "<p>&nbsp;"+gametext[gamestep]+"</p>"
+        //nEnd =  new Date().getTime();
+        //var nDiff = nEnd - nStart;
+    }
+    
+    
 }
 function changeme2(){
     if(event.keyCode == 8){
@@ -96,16 +85,47 @@ function changeme2(){
         document.getElementById("finaltest").innerHTML += "&nbsp;";
         document.getElementById("inputplace").value = "";
     }
-    else if(event.keyCode == 13){
-        document.getElementById("textoutput").innerHTML += "<p>root@game-pc:~$&nbsp;" + document.getElementById("finaltest").innerHTML + "</p>";
-        let command = document.getElementById("finaltest").innerHTML;
-        document.getElementById("finaltest").innerHTML = "";
+    else if(event.keyCode == 9){
+        event.preventDefault();
+        document.getElementById("finaltest").innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;";
         document.getElementById("inputplace").value = "";
+    }
+    else if(event.keyCode == 13){
         
-        if(command in commandlist){
-            commandoutput(command);
+        if(gamestarted){ //타자게임 공간
+            document.getElementById("textoutput").innerHTML += "<p>&nbsp;" + document.getElementById("finaltest").innerHTML + "</p>";
+            gamestep += 1;
+            if(document.getElementById("finaltest").innerHTML == gametext[gamestep - 1]){
+                point += 500;
+            }
+            if(gamestep < step){
+                
+                console.log(document.getElementById("finaltest").innerHTML);
+                console.log(gametext[gamestep - 1]);
+                console.log(document.getElementById("finaltest").innerHTML == gametext[gamestep - 1]);
+                document.getElementById("textoutput").innerHTML += "<p>&nbsp;" + gametext[gamestep] + "</p>";
+            }
+            else{
+                gamestarted = false;
+                nEnd =  new Date().getTime();
+                var nDiff = (nEnd - nStart) / 1000;
+                alert(nDiff + "초 동안 " + point + "점 득점");
+            }
+            document.getElementById("finaltest").innerHTML = "";
+            document.getElementById("inputplace").value = "";
             
         }
+        else{ //명령어 처리 공간
+            document.getElementById("textoutput").innerHTML += "<p>root@game-pc:~$&nbsp;" + document.getElementById("finaltest").innerHTML + "</p>";
+            let command = document.getElementById("finaltest").innerHTML;
+            document.getElementById("finaltest").innerHTML = "";
+            document.getElementById("inputplace").value = "";
+            if(command in commandlist){
+                commandoutput(command);
+                
+            }
+        }
+        
         document.getElementById("jb-content").scrollTop += 10000;
     }
     document.getElementById("inputplace").value = "";

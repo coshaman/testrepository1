@@ -76,6 +76,9 @@ function changeme2(){
         if(document.getElementById("finaltest").innerHTML.slice(-6) == "&nbsp;"){
             document.getElementById("finaltest").innerHTML = document.getElementById("finaltest").innerHTML.slice(0, -6);
         }
+        else if(document.getElementById("finaltest").innerHTML.slice(-4) == "&lt;" || document.getElementById("finaltest").innerHTML.slice(-4) == "&gt;"){
+            document.getElementById("finaltest").innerHTML = document.getElementById("finaltest").innerHTML.slice(0, -4);
+        }
         else{
             document.getElementById("finaltest").innerHTML = document.getElementById("finaltest").innerHTML.slice(0, -1);
         }

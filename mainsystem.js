@@ -7,11 +7,17 @@ Rank -upload : upload my score data
 Login -id -pw : login to this game`;
 commandlist['start'] = `
 `
-commandlist['test1'] = `#include <stdio.h>
+
+let codelist = [];
+codelist.push(`#include <stdio.h>
 int main(void) {
     printf("Hello, World!");
     return 0;
-}`
+}`);
+codelist.push(`for(int i=1;i<10;i++){
+    printf("%d\\n",i);
+}`);
+//codelist.push(``);
 
 
 
@@ -19,7 +25,6 @@ function changeme(){
     if(document.getElementById("finaltest").innerHTML.length < 95){
         if(event.keyCode != 32 && event.keyCode != 13){
             document.getElementById("finaltest").innerHTML += String.fromCharCode(event.keyCode);
-            
         }
         document.getElementById("inputplace").value = "";
     }
@@ -46,13 +51,15 @@ function commandoutput(command) {
             document.getElementById("textoutput").innerHTML += "&nbsp;" + text.slice(prepos, pos) + "<br>";
             prepos = pos;
             pos = text.indexOf("\n", pos + 1);
-
         }
     }
     else if(command == "start") {
         nStart = new Date().getTime();
         //타자게임
-        let textl = commandlist["test1"];
+        let textl = codelist[Math.floor(Math.random() * codelist.length)];
+        //testl = textl.replace(/\\/gi,"|_");
+        textl = textl.replace(/\n\n/gi,"&nbsp;");
+        textl = textl.replace(/\\/gi,"\\");
         gametext = textl.split("\n");
         step = gametext.length;
         gamestarted = true;
@@ -96,16 +103,19 @@ function changeme2(){
     else if(event.keyCode == 13){
         
         if(gamestarted){ //타자게임 공간
-            document.getElementById("textoutput").innerHTML += "<p>&nbsp;" + document.getElementById("finaltest").innerHTML + "</p>";
             gamestep += 1;
-            if(document.getElementById("finaltest").innerHTML == gametext[gamestep - 1]){
-                point += 500;
+            
+            if(gamestep <= step){
+                if(document.getElementById("finaltest").innerHTML == gametext[gamestep - 1]){
+                    point += 500;
+                    document.getElementById("textoutput").innerHTML += "<p style='color : #00f300'>&nbsp;" + document.getElementById("finaltest").innerHTML + "</p>";
+                }
+                else{
+                    document.getElementById("textoutput").innerHTML += "<p style='color : #ef0000'>&nbsp;" + document.getElementById("finaltest").innerHTML + "</p>";
+                }
+                
             }
             if(gamestep < step){
-                
-                console.log(document.getElementById("finaltest").innerHTML);
-                console.log(gametext[gamestep - 1]);
-                console.log(document.getElementById("finaltest").innerHTML == gametext[gamestep - 1]);
                 document.getElementById("textoutput").innerHTML += "<p>&nbsp;" + gametext[gamestep] + "</p>";
             }
             else{
@@ -123,8 +133,8 @@ function changeme2(){
             let command = document.getElementById("finaltest").innerHTML;
             document.getElementById("finaltest").innerHTML = "";
             document.getElementById("inputplace").value = "";
-            if(command in commandlist){
-                commandoutput(command);
+            if(command.toLowerCase() in commandlist){
+                commandoutput(command.toLowerCase());
                 
             }
         }

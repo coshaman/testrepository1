@@ -91,6 +91,12 @@ body {
 p{
 	margin: 0px 0px 0px 0px;
 }
+#jb-all {
+	width: 90vw;
+	margin: auto;
+	box-shadow: 0.5vw 0.5vw 0.5vw #666;
+	
+}
 #jb-content {
 	width: 90vw;
 	height: 85vh;
@@ -99,8 +105,10 @@ p{
 	overflow:auto;
 	background-color: #340f26;
 }
+	
 .content::-webkit-scrollbar {
 	width: 3px;
+	height: 5px;
 }
 .content::-webkit-scrollbar-thumb {
 	background-color: #c46336;

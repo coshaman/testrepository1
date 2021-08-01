@@ -22,7 +22,7 @@ codelist.push(`for(int i=1;i<10;i++){
 
 
 function changeme(){
-    if(document.getElementById("finaltest").innerHTML.length < 95){
+    if(document.getElementById("finaltest").innerHTML.replace(/&nbsp;/gi," ").length < 120){
         if(event.keyCode != 32 && event.keyCode != 13){
             document.getElementById("finaltest").innerHTML += String.fromCharCode(event.keyCode);
         }
@@ -69,7 +69,7 @@ function commandoutput(command) {
             gametext[gamestep] = gametext[gamestep].replace(/>/gi,"&gt;");
         }
         gamestep = 0;
-        
+        document.getElementById("testfor").innerHTML = "<span style='color: #5184b3'>$</span><span id='finaltest'></span>"
         document.getElementById("textoutput").innerHTML += "<p>&nbsp;화면에 보이는 문장을 입력 후 엔터를 누르세요.</p>"
         document.getElementById("textoutput").innerHTML += "<p>&nbsp;"+gametext[gamestep]+"</p>"
         //nEnd =  new Date().getTime();
@@ -89,16 +89,22 @@ function changeme2(){
         else{
             document.getElementById("finaltest").innerHTML = document.getElementById("finaltest").innerHTML.slice(0, -1);
         }
-        
+        document.getElementById("jb-content").scrollLeft += 10000;
     }
     else if(event.keyCode == 32){
-        document.getElementById("finaltest").innerHTML += "&nbsp;";
-        document.getElementById("inputplace").value = "";
+        if(document.getElementById("finaltest").innerHTML.replace(/&nbsp;/gi," ").length < 120){
+            document.getElementById("finaltest").innerHTML += "&nbsp;";
+            document.getElementById("inputplace").value = "";
+            document.getElementById("jb-content").scrollLeft += 10000;
+        }
     }
     else if(event.keyCode == 9){
-        event.preventDefault();
-        document.getElementById("finaltest").innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;";
-        document.getElementById("inputplace").value = "";
+        if(document.getElementById("finaltest").innerHTML.replace(/&nbsp;/gi," ").length < 120){
+            event.preventDefault();
+            document.getElementById("finaltest").innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;";
+            document.getElementById("inputplace").value = "";
+            document.getElementById("jb-content").scrollLeft += 10000;
+        }
     }
     else if(event.keyCode == 13){
         
@@ -123,13 +129,14 @@ function changeme2(){
                 nEnd =  new Date().getTime();
                 var nDiff = (nEnd - nStart) / 1000;
                 alert(nDiff + "초 동안 " + point + "점 득점");
+                document.getElementById("testfor").innerHTML = '<span style="color: #79cd30;">root@game-pc</span>:~<span style="color: #5184b3">$</span>&nbsp;<span id="finaltest"></span>'
             }
             document.getElementById("finaltest").innerHTML = "";
             document.getElementById("inputplace").value = "";
             
         }
         else{ //명령어 처리 공간
-            document.getElementById("textoutput").innerHTML += "<p>root@game-pc:~$&nbsp;" + document.getElementById("finaltest").innerHTML + "</p>";
+            document.getElementById("textoutput").innerHTML += '<p><span style="color: #79cd30;">root@game-pc</span>:~<span style="color: #5184b3">$</span>&nbsp;' + document.getElementById("finaltest").innerHTML + '</p>';
             let command = document.getElementById("finaltest").innerHTML;
             document.getElementById("finaltest").innerHTML = "";
             document.getElementById("inputplace").value = "";

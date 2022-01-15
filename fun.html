@@ -36,18 +36,23 @@
     <script>
     </script>
 </head>
-<body style="background-color : black">
+<body style="background-color : black;-ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;">
     
 	<div style="background-color: beige; width: 80%; margin: 0 auto; margin-top: 10vh;">
 		<p>Phone number</p>
-		<div style="display: flex; width: 80%;"><label for="customRange2" class="form-label">01000000000</label><input type="range" class="form-range" min="01000000000" max="01099999999" step="1" id="customRange2" style="flex: auto;" onchange="rangeA();"><label for="customRange2" class="form-label">01099999999</label></div>
+		<div style="display: flex; width: 80%;"><label for="customRange2" class="form-label">01000000000</label><input type="range" class="form-range" min="01000000000" max="01099999999" step="1" id="customRange2" style="flex: auto;" onchange="rangeA();"><label for="customRange2" class="form-label">01099999999</label><a style="margin-left: 2vw;" onclick="random();"><u>?</u></a></div>
 		<p id="range1"></p>
 		
 		
 	</div>
 	<script>
+		document.getElementById("customRange2").value = Math.floor(Math.random() * 100000000) + 1000000000;
 		document.getElementById("range1").innerHTML = "0" + document.getElementById("customRange2").value;
 		function rangeA(){
+			document.getElementById("range1").innerHTML = '0' + document.getElementById("customRange2").value;
+		}
+		function random(){
+			document.getElementById("customRange2").value = Math.floor(Math.random() * 100000000) + 1000000000;
 			document.getElementById("range1").innerHTML = '0' + document.getElementById("customRange2").value;
 		}
 	</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>fun html</title>
+    <link rel="shortcut icon" type="image/x-icon" href="">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="animate.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+          
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="teststyle.css" />
+    <!--<link rel="stylesheet" href="style.css">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/wow.min.js"></script>
+    <script src="https://kit.fontawesome.com/4bea434f10.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://wowjs.uk/css/libs/animate.css">
+    <script src="https://wowjs.uk/dist/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <style type="text/css">
+    </style>
+    <style>
+		@font-face{
+			src : url("SB 어그로 L.ttf");
+			font-family: "sb";
+		}
+		
+      .drag {-ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;}
+
+    </style>
+    <script>
+    </script>
+</head>
+<body style="background-color : black">
+    
+	<div style="background-color: beige; width: 80%; margin: 0 auto; margin-top: 10vh;">
+		<p>Phone number</p>
+		<div style="display: flex; width: 80%;"><label for="customRange2" class="form-label">01000000000</label><input type="range" class="form-range" min="01000000000" max="01099999999" step="1" id="customRange2" style="flex: auto;" onchange="rangeA();"><label for="customRange2" class="form-label">01099999999</label></div>
+		<p id="range1"></p>
+		
+		
+	</div>
+	<script>
+		document.getElementById("range1").innerHTML = "0" + document.getElementById("customRange2").value;
+		function rangeA(){
+			document.getElementById("range1").innerHTML = '0' + document.getElementById("customRange2").value;
+		}
+	</script>
+
+</body>
+</html>
